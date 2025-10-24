@@ -1,0 +1,643 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<style>
+			.navbar {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  z-index: 10000;
+			}
+			.navbar-nav > li > .dropdown-menu {
+			  position: fixed;
+			  top: 60px;      
+			  left: 0;
+			  right: 0;
+			  width: 100%;
+			  margin: 0;
+			  border-radius: 0;
+			  background: #fff;
+			  border: none;
+			  padding: 20px;
+			  z-index: 9999;
+			  display: none;   
+			}
+
+			.navbar-nav > li:hover > .dropdown-menu {
+			  display: block;
+			}
+			body {
+			  padding-top: 60px;   
+			} 
+			.vehicle {
+				border-style: hidden;
+				margin: 0px;              
+				height: 550px;
+				display: flex;          
+				align-items: center;    
+				gap: 80px;              
+				padding: 30px 50px;
+				flex-wrap: wrap;
+				overflow: visible;
+				border-right: 2px solid #ccc; 
+			}
+
+			.icon {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.offers {
+				margin: 10px;
+				padding: 60px;
+				text-align: left;
+				line-height: 2.0;
+			}
+
+			.offers li a {
+				color: black;   
+				text-decoration: none;
+			}
+
+			.offers li a:hover {
+				text-decoration: underline;
+			}
+			.solar{
+				border-style: hidden;
+				margin: 0px;              
+				height: 600px;
+				display: flex;          
+				align-items: center;    
+				gap: 50px;              
+				padding: 30px 50px;
+				flex-wrap: wrap;
+				overflow: visible;
+				border-right: 2px solid #ccc; 
+			
+			}
+			.energy{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			
+			}
+			.panel{
+				margin: 0px;
+				padding: 90px;
+				text-align: left;
+				line-height: 2.5;
+			}
+			.panel li a {
+				color: black;   
+				text-decoration: none;
+			}
+
+			.panel li a:hover {
+				text-decoration: underline;
+			}
+			#googleMap{
+
+			
+				position: relative;
+			
+			}
+
+			#googleMap iframe {
+				 height: 100%;
+				 width: 100%;
+				 left: 0;
+				 top: 0;
+				 position: absolute;
+			}
+		</style>
+	</head>	
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">
+				<div style="margin:0px">
+					<img src="proimages/teslalogo.png" alt="logo" height="55px" width="95px">
+				</div>
+			  </a>
+			</div>
+			<br>
+			
+			<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">	
+							
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Vehicle
+								<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+										<div style="margin:0px;">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-8">
+													
+														<section class="vehicle">
+										
+															<div class="icon">
+																<img src="proimages/Smodel.jpg" width="130px" height="130px"><br>
+																<p>Model S</p>
+																<div style="display: inline-block; text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/models">Learn</a>
+																  <a href="https://www.tesla.com/models/design#overview" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+															<div class="icon">
+																<img src="proimages/3model.jpg" width="130px" height="130px"><br>
+																<p>Model 3</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/model3-choose">Learn</a>
+																  <a href="https://www.tesla.com/model3/design#overview" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+															<div class="icon">
+																<img src="proimages/Ymodel.jpg" width="130px" height="130px"><br>
+																<p>Model Y</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/modely">Learn</a>
+																  <a href="https://www.tesla.com/modely/design#overview" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+															
+															<div class="icon">
+																<img src="proimages/Xmodel.jpg" width="130px" height="130px"><br>
+																<p>Model X</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/modelx">Learn</a>
+																  <a href="https://www.tesla.com/modelx/design#overview" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+
+															<div class="icon">
+																<img src="proimages/Cybertruck.jpg" width="130px" height="130px"><br>
+																<p>Cybertruck</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/cybertruck">Learn</a>
+																  <a href="https://www.tesla.com/cybertruck/design#overview" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+															<div class="icon">
+																<img src="proimages/inventory.jpg" width="130px" height="130px"><br>
+																<p>Inventory</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/inventory/new/my?arrangeby=savings&range=0">New</a>
+																  <a href="https://www.tesla.com/inventory/used/my?arrangeby=savings&range=0" style="margin-left: 15px;">Owned</a>
+																</div>
+																	
+															</div>
+														</section>
+													</div>
+													<div class="col-md-4">
+														<div class="offers">
+											
+																	<li><a href="#">Current offers</a></li>
+																	<li><a href="#">Demo Drive</a></li>
+																	<li><a href="#">Trade-in</a></li>
+																	<li><a href="#">Pre-Owned</a></li>
+																	<li><a href="#">Features</a></li>
+																	<li><a href="#">Help me Choose</a></li>
+																	<li><a href="#">Compare</a></li>
+																	<li><a href="#">Workshops</a></li>
+																	<li><a href="#">Help me Charge</a></li>
+																	<li><a href="#">Fleet</a></li>
+																	<li><a href="#">Roadster</a></li>
+																	<li><a href="#">Federal Tax Credit</a></li>
+																
+														</div>
+													</div>
+													
+												</div>
+											</div>
+										</div>							
+								</ul>
+							</li>
+
+
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Energy
+								<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+										<div style="margin:0px;">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-8">
+													
+														<section class="solar">
+										
+															<div class="energy">
+																<img src="proimages/solarpanel.jpg" width="160px" height="160px"><br>
+																<p>Solar Panel</p>
+																<div style="display: inline-block; text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/solarpanels">Learn</a>
+																  <a href="https://www.tesla.com/energy/design?poi=solarpanels" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+															<div class="energy">
+																<img src="proimages/solarroof.jpg" width="160px" height="160px"><br>
+																<p>Solar Roof</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/solarroof">Learn</a>
+																  <a href="https://www.tesla.com/energy/design?poi=solarroof" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+															<div class="energy">
+																<img src="proimages/powerwall.jpg" width="160px" height="160px"><br>
+																<p>PowerWall</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/powerwall">Learn</a>
+																  <a href="https://www.tesla.com/powerwall/design" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+															
+															<div class="energy">
+																<img src="proimages/megapack.jpg" width="160px" height="160px"><br>
+																<p>MegaPack</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/megapack" style="margin-left: 15px;">Learn</a>
+																</div>
+																	
+															</div>
+
+														</section>
+													</div>
+													<div class="col-md-4">
+														<div class="panel">
+											
+																	
+																	<li><a href="#">Schedule a Consultation </a></li>
+																	<li><a href="#">Why Solar </a></li>
+																	<li><a href="#">Incentives </a></li>
+																	<li><a href="#">Support </a></li>
+																	<li><a href="#">Partner with Tesla </a></li>
+																	<li><a href="#">Commercial </a></li>
+																	<li><a href="#">Utilities </a></li>
+																	
+																
+														</div>
+													</div>
+													
+												</div>
+											</div>
+										</div>							
+								</ul>
+							</li>
+							
+							
+							
+							
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Charging
+								<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+										
+											<div class="container">
+												<div class="row">
+													<div class="col-md-8">
+													
+														<section class="solar">
+															
+															<div class="energy">
+																<img src="proimages/charging.jpg" width="160px" height="160px"><br>
+																<p>Charging</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/charging" style="margin-left: 15px;">Learn</a>
+																</div>
+																	
+															</div>
+															<div class="energy">
+																<img src="proimages/homecharging.jpg" width="160px" height="160px"><br>
+																<p>PowerWall</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/home-charging">Learn</a>
+																  <a href="https://shop.tesla.com/category/charging#charging.at-home" style="margin-left: 15px;">Shop</a>
+																</div>
+																	
+															</div>
+										
+															
+															<div class="energy">
+																<img src="proimages/sucharging.jpg" width="160px" height="160px"><br>
+																<p>Supercharging</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/supercharger">Learn</a>
+																  <a href="https://www.tesla.com/findus?bounds=58.474913705579276%2C-72.7848379%2C11.74615303824089%2C-140.2848379" style="margin-left: 15px;">Find</a>
+																</div>
+																	
+															</div>
+															<div class="energy">
+																<img src="proimages/wallconnector.jpg" width="160px" height="160px"><br>
+																<p>Wall Connector for Business</p>
+																<div style="display: inline-block;text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/commercial-wall-connector">Learn</a>
+																  <a href="http://tesla.com/commercial-wall-connector/get" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+															<div class="energy">
+																<img src="proimages/supercharger.jpg" width="160px" height="160px"><br>
+																<p>Supercharger for Business</p>
+																<div style="display: inline-block; text-decoration-line: underline;">
+																  <a href="https://www.tesla.com/supercharger-for-business">Learn</a>
+																  <a href="" style="margin-left: 15px;">Order</a>
+																</div>
+																	
+															</div>
+														</section>
+													</div>
+													<div class="col-md-4">
+														<div class="panel">
+											
+																	
+																	<li><a href="#">Help Me Charge </a></li>
+																	<li><a href="#">Charging Calculator </a></li>
+																	<li><a href="#">Charging With NACS </a></li>
+																	<li><a href="#">Supercharger Voting </a></li>
+																	<li><a href="#">Host a Supercharger </a></li>
+																	
+														</div>
+													</div>
+													
+												</div>
+											</div>						
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a  class="dropdown-toggle" data-toggle="dropdown"href="#">Discover<span class="caret"></span>
+								<ul class="dropdown-menu">
+									<li><a link href="demo.html">Demo Drive</a></li>
+									<li><a link href="insurence.html">Insurance</a></li>
+									<li><a href="https://share.google/pYppC4fB3O4svtFXy ">Current Offer</a></li>
+									<li><a link href="learn.html">Learn</a></li>
+									<li><a href=" https://share.google/ziia3kdAxrsVBIlFU">Video Guide</a></li>
+									<li><a href="  https://share.google/SjPuImEPyd7BkIJlS">Customer Stories</a></li>
+									<li><a href=" https://share.google/sVAbGKXUlfarRRvJF ">Events</a></li>
+								</ul>
+							</li>	
+								<li class="dropdown">
+								  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Shop <span class="caret"></span></a>
+								  <ul class="dropdown-menu" style="width:100%; text-align:center; gap:200px;">
+									<li style="display:inline-block; margin:10px;">
+									  <img src="proimages/getcharge.jpg" width="180" height="180"><br><br>
+									  <a href="https://shop.tesla.com/category/charging">Charging</a>
+									</li>
+									<li style="display:inline-block; margin:10px;">
+									  <img src="proimages/wheel.jpg" width="180" height="180"><br><br>
+									  <a href="https://shop.tesla.com/category/vehicle-accessories">Accessories</a>
+									</li>
+									<li style="display:inline-block; margin:10px;">
+									  <img src="proimages/hat.jpg" width="180" height="180"><br><br>
+									  <a href="https://shop.tesla.com/category/apparel">Apparel</a>
+									</li>
+									<li style="display:inline-block; margin:10px;">
+									  <img src="proimages/bag.jpg" width="180" height="180"><br><br>
+									  <a href="https://shop.tesla.com/category/lifestyle">Lifestyle</a>
+									</li>
+								  </ul>
+								</li>
+						</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="https://www.tesla.com/support"><span class="glyphicon glyphicon-globe"></span></a></li>
+					<li><a href="https://www.tesla.com/"><span class="glyphicon glyphicon-search"></span></a></li>
+					<li><a href="https://auth.tesla.com/en_us/oauth2/v1/authorize?redirect_uri=https%3A%2F%2Fwww.tesla.com%2Fteslaaccount%2Fowner-xp%2Fauth%2Fcallback&response_type=code&client_id=ownership&scope=offline_access%20openid%20ou_code%20email%20phone&audience=https%3A%2F%2Fownership.tesla.com%2F&locale=en-US"><span class="glyphicon glyphicon-user"></span></a></li>
+				</ul>
+			</div>
+		  </div>
+		</nav>
+		
+		<div class="container">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel"data-slide-to="0"class="active"></li>
+				<li data-target="#myCarousel"data-slide-to="1"></li>
+				<li data-target="#myCarousel"data-slide-to="2"></li>
+			</ol>
+			<!------------carousel 1st image---------------->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="proimages/carousel1.jpg" alt="car" style="width:100%" >
+					<div class="carousel-caption">
+						<h1><b>Secure the $7,500 Federal Tax Credit1</b></h1>
+                          <p><b>Limited Inventory – Take Delivery by September 30</b></p>
+							<div class="btn-group ">
+							  <button style="background-color:DodgerBlue">Order model 3</button>
+							  <button style="background-color:DodgerBlue">Order model Y</button>
+							</div>
+					</div>
+				</div>
+			<!------------carousel 2nd image---------------->
+				<div class="item ">
+					<img src="proimages/carousel2.jpg" alt="car" style="width:100%">
+						<div class="carousel-caption">
+							<h1><b>Cybertruck</b></h1>
+							<p><b> Lease from $699/mo for a limited time</b></p>
+								<div class="btn-group ">
+								  <button style="background-color:DodgerBlue">Order Now</button>
+								  <button style="background-color:DodgerBlue">View Inventory</button>
+								</div>
+						</div>
+				</div>
+				<!------------carousel 3rd image---------------->
+				<div class="item ">
+					<img src="proimages/carousel3.jpg" alt="car" style="width:100%">
+						<div class="carousel-caption">
+							<h1><b>Model 3</b></h1>
+							<p> <b>2.99% APR Available</b></p>
+							<div class="btn-group ">
+								  <button style="background-color:DodgerBlue">Order Now</button>
+								  <button style="background-color:DodgerBlue">View Inventory</button>
+							</div>
+						</div>
+				</div>
+			</div>
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"> </span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next" >
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+			</div><br><br>
+			<!------------------ for 2nd carousel--------------------->
+		</div>
+			<div class="container">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel"data-slide-to="0"class="active"></li>
+							<li data-target="#myCarousel"data-slide-to="1"></li>
+							<li data-target="#myCarousel"data-slide-to="2"></li>
+							<li data-target="#myCarousel"data-slide-to="3"></li>
+							<li data-target="#myCarousel"data-slide-to="4"></li>
+							
+						</ol>
+						<!------------carousel 1st image---------------->
+					<div class="carousel-inner">
+							<div class="item active">
+								<img src="proimages/slide1.jpg" alt="car" style="width:100%" >
+							</div>
+						<!------------carousel 2nd image---------------->
+							<div class="item ">
+								<img src="proimages/slide2.jpg" alt="car" style="width:100%">
+							</div>
+							<!------------carousel 3rd image---------------->
+							<div class="item ">
+								<img src="proimages/slide3.jpg" alt="car" style="width:100%">
+							</div>
+							<!------------carousel 4th image---------------->
+							<div class="item ">
+								<img src="proimages/slide4.jpg" alt="car" style="width:100%">
+							</div>
+							<!------------carousel 5th image---------------->
+							<div class="item ">
+								<img src="proimages/slide5.jpg" alt="car" style="width:100%">
+							</div>
+					</div>
+				</div><br><br>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<div id="googleMap">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d26779666.889489952!2d-119.30852522852531!3d34.981606970758776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sTesla%20near%20United%20States!5e0!3m2!1sen!2sin!4v1757492246013!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><br><br>
+				<div class="row">
+					  <div class="col-md-6">
+						<div class="thumbnail">
+						  <a href="proimages/allcar2.jpg">
+							<img src="proimages/allcar2.jpg" alt="Lights" width="40%" height="400%">
+							<div class="caption">
+								<h2><b>Current Offers</b></h2>
+								<p>Limited inventory. Take delivery today.</p>
+							  <div class="btn-group ">
+								  <button>Learn More</button>
+							</div>
+							</div>
+						  </a>
+						</div>
+					  </div>
+					 <div class="col-md-6">
+						<div class="thumbnail">
+						  <a href="proimages/gold.jpg">
+							<img src="proimages/gold.jpg" alt="gold" width="40%" height="40%">
+							<div class="caption">
+								<h2><b>1 Million Powerwalls Installed</b></h2>
+							  <p>Now keeping the lights on in 30 countries.</p>
+							  <div class="btn-group ">
+								  <button>Learn More</button>
+							</div>
+							</div>
+						  </a>
+						</div>
+					 </div>
+				</div>
+					<div class="col-sm-12">
+						<video height ="100%" width="100%" controls >
+						<source  src="proimages/video.mp4" height="50px" width="50px">
+							<div class="caption">
+								<h2><b>1 Million Powerwalls Installed</b></h2>
+							</div>
+						</video>
+					</div>
+					<br><br><br><br>
+					
+					<h1 class="text-center"><b>Find Your Charge</b></h1>
+					<h3 class="text-center">
+					  View the network of Tesla Superchargers and Destination Chargers available near you.
+					</h3>
+
+					<div class="text-center">
+					  <button type="button" class="btn btn-primary">View Network</button>
+					  <button type="button" class="btn btn-default">Learn More</button>
+					</div>
+					<br><br>
+				<div class="container">
+					<div id="myCarousel" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel"data-slide-to="0"class="active"></li>
+								<li data-target="#myCarousel"data-slide-to="1"></li>
+								<li data-target="#myCarousel"data-slide-to="2"></li>
+								<li data-target="#myCarousel"data-slide-to="3"></li>
+							</ol>
+							<!------------carousel 1st image---------------->
+								<div class="carousel-inner">
+									<div class="item active">
+										<img src="proimages/solar1.jpg" alt="car" width="95%" height="60%" >
+										<div class="carousel-caption">
+											<h1><b>Solar Panels</b></h1>
+											<p> <b>use solar Energy to Power Your and Charge Your Tesla</b></p>
+											<div class="btn-group ">
+												  <button style="background-color:DodgerBlue">Order Now</button>
+												  <button style="background-color:default">Learn More</button>
+											</div>
+									</div>
+								</div>
+								<!------------carousel 2nd image---------------->
+									<div class="item ">
+										<img src="proimages/solar2.jpg" alt="car" width="95%" height="60%">
+										<div class="carousel-caption">
+											<h1><b>PowerWall</b></h1>
+											<p> <b>You Keep Your Light on During Outages</b></p>
+											<div class="btn-group ">
+												  <button style="background-color:DodgerBlue">Order Now</button>
+												  <button style="background-color:default">Learn More</button>
+											</div>
+										</div>
+									</div>
+									<!------------carousel 3rd image---------------->
+									<div class="item ">
+										<img src="proimages/solar3.jpg" alt="car" width="95%" height="60%">
+											<div class="carousel-caption">
+												<h1><b>SolarRoof</b></h1>
+												<p> <b>Generate Clean Energy With Your Roof</b></p>
+												<div class="btn-group ">
+													  <button style="background-color:DodgerBlue">Order Now</button>
+													  <button style="background-color:default">Learn More</button>
+												</div>
+											</div>
+									</div>
+									<!------------carousel 4th image---------------->
+									<div class="item ">
+										<img src="proimages/solar4.jpg" alt="car" width="95%" height="60%">
+										<div class="carousel-caption">
+												<h1><b>Megapack</b></h1>
+												<p> <b>Massive Batteries for Massive Energy Support</b></p>
+												<div class="btn-group ">
+													  <button style="background-color:DodgerBlue">Order Now</button>
+													  <button style="background-color:default">Learn More</button>
+												</div>
+										</div>
+									</div>
+								</div>
+					</div><br><br><br>
+							
+						<p><center> $7,500 federal tax credit available to eligible buyers who purchase and take delivery of a qualifying vehicle by September 30,
+						2025. Leases not eligible. Not all model trims will qualify. MSRP cap of $80,000 for Cybertruck and Model Y; $55,000 for Model 3
+						applies. Consult a tax professional regarding your personal eligibility.</center></p><br><br>
+						<p><center> Terms subject to change. <u>Learn more.<u></center></p>
+
+	</body>
+</html>
